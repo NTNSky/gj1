@@ -38,7 +38,7 @@ async function login() {
 
 function updateStatusAndSendMessages() {
   const currentStatus = statusMessages[currentIndex];
-  const nextStatus = statusMessages[(currentIndex + 1) % statusMessages.length];
+
 
   client.user.setPresence({
     activities: [{ name: currentStatus, type: ActivityType.Custom}],
@@ -64,10 +64,7 @@ client.once('ready', () => {
   console.log(`\x1b[36m%s\x1b[0m`, `|    ❤️`);
   updateStatusAndSendMessages();
 
-  setInterval(() => {
-    updateStatusAndSendMessages();
-  }, 10000);
-});
+
 
 login();
 
